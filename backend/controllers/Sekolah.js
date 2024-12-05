@@ -1,10 +1,17 @@
 import Sekolah from "../models/sekolahModel.js";
+import Users from "../models/userModel.js";
 import argon2 from "argon2";
 
 export const getSekolah = async(req, res) => {
     try{
-        const response = await Sekolah.findAll();
-        res.status(200).json(response);
+        let response;
+        if(req.id_role === 1){
+            response = await Sekolah.findAll();
+            res.status(200).json(response);
+        }else{
+            
+        }
+      
     }catch(error){
         res.status(500).json({msg: error.message});
     }

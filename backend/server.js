@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import session from "express-session";
 import db from "./config/Database.js";
+import SequelizeStore from "connect-session-sequelize";
 
 import EkstrakurikulerRoute from "./routes/EkstrakurikulerRoute.js";
 import GuruRoute from "./routes/GuruRoute.js";
@@ -25,6 +26,10 @@ dotenv.config();
 
 const app = express();
 
+const sessionStore = SequelizeStore(session.Store);
+const store = new sessionStore({
+    db:db
+});
 // (async()=>{
 //     try {
 //         await db.sync({ force: true }); 
@@ -38,6 +43,7 @@ app.use(session({
     secret: process.env.SESS_SECRET,
     resave:false,
     saveUninitialized: true,
+    store: store,
     cookie:{
         secure: 'auto'
     }
@@ -66,6 +72,7 @@ app.use(tanggalraporRoute);
 app.use(userRoute);
 app.use(AuthRoute);
 
+// store.sync();
 // Endpoint contoh
 app.get("/", (req, res) => res.send("SI-Rapor Backend Running..."));
 
