@@ -7,13 +7,13 @@ import {
     updateRoles
 } from "../controllers/Role.js";
 
-import { verifyUser } from "../middleware/AuthUser.js";
+import { verifyUser,adminOnly } from "../middleware/AuthUser.js";
 
 const router = express.Router();
 
-router.get('/role',verifyUser,getRoles);
-router.get('/role/:id',verifyUser, getRolesById);
-router.post('/role',verifyUser, createRoles);
-router.patch('/role/:id',verifyUser, updateRoles);
+router.get('/role',verifyUser,adminOnly, getRoles);
+router.get('/role/:id',verifyUser,adminOnly,  getRolesById);
+router.post('/role',verifyUser,adminOnly,  createRoles);
+router.patch('/role/:id',verifyUser,adminOnly,  updateRoles);
 
 export default router;

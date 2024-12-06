@@ -6,12 +6,13 @@ import {
     createSekolah,
     updateSekolah
 } from "../controllers/Sekolah.js";
+import { verifyUser } from "../middleware/AuthUser.js";
 
 const router = express.Router();
 
-router.get('/sekolah',getSekolah);
-router.get('/sekolah/:id',getSekolahById);
-router.post('/sekolah',createSekolah);
-router.patch('/sekolah/:id',updateSekolah);
+router.get('/sekolah',verifyUser,getSekolah);
+router.get('/sekolah/:id',verifyUser,getSekolahById);
+router.post('/sekolah',verifyUser,createSekolah);
+router.patch('/sekolah/:id',verifyUser,updateSekolah);
 
 export default router;

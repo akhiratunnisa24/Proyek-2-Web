@@ -9,7 +9,7 @@ export const getSekolah = async(req, res) => {
             response = await Sekolah.findAll();
             res.status(200).json(response);
         }else{
-            
+            res.status(403).json({msg : 'Akses terlarang'});
         }
       
     }catch(error){

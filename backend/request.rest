@@ -14,7 +14,7 @@ Content-Type: application/json
 }
 
 ### GET Request
-GET http://localhost:5000/users
+GET http://localhost:5000/role
 ### 
 //Get single user
 GET http://localhost:5000/role/1
@@ -57,10 +57,6 @@ Content-Type: application/json
     "username": "admin",
     "password": "12345678"
 }
-
-###
-//logout
-POST http://localhost:5000/logout
 
 ###
 //logout
