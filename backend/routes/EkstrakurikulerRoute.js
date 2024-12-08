@@ -6,6 +6,7 @@ import {
     createEkstrakurikuler,
     updateEkstrakurikuler
 } from "../controllers/Ekstrakurikuler.js";
+import { verifyUser,adminOnly } from "../middleware/AuthUser.js";
 
 const router = express.Router();
 

@@ -6,6 +6,7 @@ import {
     createKelas,
     updateKelas
 } from "../controllers/Kelas.js";
+import { verifyUser,adminOnly } from "../middleware/AuthUser.js";
 
 const router = express.Router();
 

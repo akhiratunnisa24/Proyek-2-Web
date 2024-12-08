@@ -3,7 +3,7 @@ import Users from "../models/userModel.js";
 export const verifyUser = async (req, res, next) => {
     try {
         if (!req.session.userId) {
-            return res.status(401).json({ msg: "Mohon login ke akun Anda!" });
+            return res.status(401).json({ msg: "Mohon login ke akun Anda!"});
         }
 
         const user = await Users.findOne({

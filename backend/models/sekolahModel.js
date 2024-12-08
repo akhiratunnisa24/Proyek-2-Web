@@ -12,7 +12,7 @@ const Sekolah = db.define('sekolah',{
             notEmpty: true
         }
     },
-    nama_Sekolah:{
+    nama_sekolah:{
         type: DataTypes.STRING,
         allowNull: false,
         validate:{

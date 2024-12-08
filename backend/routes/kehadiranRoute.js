@@ -6,7 +6,7 @@ import {
     createKehadiran,
     updateKehadiran
 } from "../controllers/Kehadiran.js";
-
+import { verifyUser } from "../middleware/AuthUser.js";
 const router = express.Router();
 
 router.get('/kehadiran',getKehadiran);

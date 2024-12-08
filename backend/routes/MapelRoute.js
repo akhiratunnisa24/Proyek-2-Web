@@ -6,6 +6,7 @@ import {
     createMapel,
     updateMapel
 } from "../controllers/Mapel.js";
+import { verifyUser,adminOnly } from "../middleware/AuthUser.js";
 
 const router = express.Router();
 

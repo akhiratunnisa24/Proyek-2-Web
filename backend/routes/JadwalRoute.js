@@ -6,6 +6,7 @@ import {
     createJadwal,
     updateJadwal
 } from "../controllers/Jadwal.js";
+import { verifyUser,adminOnly } from "../middleware/AuthUser.js";
 
 const router = express.Router();
 

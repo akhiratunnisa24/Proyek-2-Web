@@ -6,13 +6,13 @@ import {
     createSekolah,
     updateSekolah
 } from "../controllers/Sekolah.js";
-import { verifyUser } from "../middleware/AuthUser.js";
+import { verifyUser, adminOnly } from "../middleware/AuthUser.js";
 
 const router = express.Router();
 
-router.get('/sekolah',verifyUser,getSekolah);
-router.get('/sekolah/:id',verifyUser,getSekolahById);
-router.post('/sekolah',verifyUser,createSekolah);
-router.patch('/sekolah/:id',verifyUser,updateSekolah);
+router.get('/sekolah',verifyUser,adminOnly,getSekolah);
+router.get('/sekolah/:id',verifyUser,adminOnly,getSekolahById);
+router.post('/sekolah',verifyUser,adminOnly,createSekolah);
+router.patch('/sekolah/:id',verifyUser,adminOnly,updateSekolah);
 
 export default router;

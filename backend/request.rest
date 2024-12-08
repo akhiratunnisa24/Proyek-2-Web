@@ -61,3 +61,53 @@ Content-Type: application/json
 ###
 //logout
 POST http://localhost:5000/logout
+
+
+###
+//REQUEST BAGIAN PROFILE SEKOLAH
+//create sekolah
+POST http://localhost:5000/sekolah
+Content-Type: application/json
+
+{
+    "nama_sekolah": "SMP Suka Cita",
+    "npsn": "8990123476",
+    "nss": "56547889",
+    "alamat": "Banjar Sari",
+    "kode_pos": "56432",
+    "telepon": "0752456012",
+    "kelurahan": "Suka Sari",
+    "kecamatan": "Sukamaju",
+    "kab_kota":"Banjarnegraa",
+    "provinsi":"Jawa Tengah",
+    "website":"www.sukacita.ac.id",
+    "email":"sukacita@sch.id",
+    "kepsek":"Winarti, M.Pd",
+    "nip_kepsek":"1976073475987001"
+}
+
+###
+//update sekolah
+PATCH  http://localhost:5000/sekolah/1
+Content-Type: application/json
+
+{
+    "nama_sekolah": "SMP Suka Cita",
+    "npsn": "8990123476",
+    "nss": "56547889",
+    "alamat": "Banjar Sari",
+    "kode_pos": "56432",
+    "telepon": "0752456012",
+    "kelurahan": "Suka Sari",
+    "kecamatan": "Sukamaju",
+    "kab_kota":"Banjarnegraa",
+    "provinsi":"Jawa Tengah",
+    "website":"www.sukacita.ac.id",
+    "email":"sukacita@sch.id",
+    "kepsek":"Winarti, M.Pd",
+    "nip_kepsek":"1976073475987001"
+}
+
+### 
+//Get single user
+GET http://localhost:5000/sekolah/1

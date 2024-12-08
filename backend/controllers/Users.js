@@ -4,16 +4,21 @@ import argon2 from "argon2";
 
 export const getUsers = async(req, res) => {
     try{
-        const response = await Users.findAll({
-            attributes:['uuid','username','id_role','is_active'],
-            include: [
-                {
-                    model: Role,      
-                    attributes: ['nama_role'],  
-                }
-            ],
-        });
-        res.status(200).json(response);
+        let response;
+        if(req.id_role === 1){
+                response = await Users.findAll({
+                attributes:['uuid','username','id_role','is_active'],
+                include: [
+                    {
+                        model: Role,      
+                        attributes: ['nama_role'],  
+                    }
+                ],
+            });
+            res.status(200).json(response);
+        }else{
+            res.status(403).json({msg : 'Akses terlarang'});
+        }
     }catch(error){
         res.status(500).json({msg: error.message});
     }
