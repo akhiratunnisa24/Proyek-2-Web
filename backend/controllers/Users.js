@@ -109,7 +109,6 @@ export const updateUsers = async(req, res) => {
         res.status(200).json({ msg: "Data user berhasil diupdate" });
 
     } catch (error) {
-
         res.status(400).json({ msg: error.message });
     }
 }

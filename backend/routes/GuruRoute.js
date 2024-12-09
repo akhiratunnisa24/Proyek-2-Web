@@ -10,9 +10,9 @@ import { verifyUser,adminOnly } from "../middleware/AuthUser.js";
 
 const router = express.Router();
 
-router.get('/guru',getGuru);
-router.get('/guru/:id',getGuruById);
-router.post('/guru',createGuru);
-router.patch('/guru/:id',updateGuru);
+router.get('/guru',verifyUser,adminOnly,getGuru);
+router.get('/guru/:id',verifyUser,adminOnly,getGuruById);
+router.post('/guru',verifyUser,adminOnly,createGuru);
+router.patch('/guru/:id',verifyUser,adminOnly,updateGuru);
 
 export default router;

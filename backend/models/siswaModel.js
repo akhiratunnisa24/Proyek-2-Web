@@ -37,13 +37,13 @@ const Siswa = db.define('siswa',{
         }
     },
     tgl_lahir: {
-        type: DataTypes.DATE, 
-        allowNull: false, 
+        type: DataTypes.DATEONLY, 
+        allowNull: false,
         validate: {
-            notEmpty: true, 
-            isDate: true, 
-            isBefore: new Date().toISOString().split('T')[0], 
-        },
+            notEmpty: true,
+            isDate: true,
+            isBefore: new Date().toISOString().split('T')[0],
+        }
     },
     alamat:{
         type: DataTypes.STRING,
@@ -68,12 +68,12 @@ const Siswa = db.define('siswa',{
             notEmpty: true
         }
     },
-    id_user:{
+    id_user: {
         type: DataTypes.INTEGER,
-        allowNull: false,
-        validate:{
-            notEmpty: true
-        },
+        allowNull: true,
+        validate: {
+            notEmpty: false
+        }
     },
     status: {
         type: DataTypes.ENUM('0', '1'), 

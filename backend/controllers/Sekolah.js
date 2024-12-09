@@ -31,7 +31,6 @@ export const getSekolahById = async(req, res) => {
 }
 
 export const createSekolah = async(req, res) => {
-    
     const { nama_sekolah, npsn, nss, alamat,kode_pos,telepon,kelurahan,kecamatan,kab_kota,provinsi,website,email,kepsek, nip_kepsek} = req.body;
     try {
         await Sekolah.create({

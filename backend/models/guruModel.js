@@ -14,9 +14,9 @@ const Guru = db.define('guru', {
     },
     id_user: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
         validate: {
-            notEmpty: true
+            notEmpty: false
         }
     },
     nip_guru: {
@@ -42,12 +42,12 @@ const Guru = db.define('guru', {
         }
     },
     tgl_lahir: {
-        type: DataTypes.DATE, 
-        allowNull: false, 
+        type: DataTypes.DATEONLY, 
+        allowNull: false,
         validate: {
-            notEmpty: true, 
-            isDate: true, 
-            isBefore: new Date().toISOString().split('T')[0], 
+            notEmpty: true,
+            isDate: true,
+            isBefore: new Date().toISOString().split('T')[0],
         }
     },
     alamat: {
